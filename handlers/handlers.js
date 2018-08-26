@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    retrieveEvents
+    retrieveEvents,
+    getVenuesById
 } = require('./events');
 
 
@@ -11,7 +12,9 @@ router.get('/', (req, res) => {
         type: 'events'
     })
 });
+
 router.get('/search/events', retrieveEvents);
+router.get('/venues/:id', getVenuesById);
 
 
 module.exports = router;
