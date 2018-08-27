@@ -55,7 +55,30 @@ const getVenuesById = (req, res) => {
     
 };
 
+
+const getEventById = (req, res) => {
+
+    const id = req.params.id;
+
+    axios({
+        url: `https://www.eventbriteapi.com/v3/events/${id}`,
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer N2A6M2NFJFNS3JNORWIX'
+        }
+    })
+    .then((response) => {
+        res.json({
+            ...response.data
+        });
+    })
+    .catch((error) => {
+        res.status(404).json(error);
+    })
+};
+
 module.exports = {
     retrieveEvents,
-    getVenuesById
+    getVenuesById,
+    getEventById
 };

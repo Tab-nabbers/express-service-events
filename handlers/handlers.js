@@ -3,7 +3,8 @@ const router = express.Router();
 
 const {
     retrieveEvents,
-    getVenuesById
+    getVenuesById,
+    getEventById
 } = require('./events');
 
 
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
 
 router.get('/search/events', retrieveEvents);
 router.get('/venues/:id', getVenuesById);
+router.get('/event/:id', getEventById);
 
 
 module.exports = router;
